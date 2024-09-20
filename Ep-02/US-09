@@ -1,0 +1,17 @@
+Feature: Iniciar sesión
+
+  # Como Owner/Cliente de MoviRent 
+  # Quiero iniciar sesión 
+  # Para acceder a los beneficios que ofrece la aplicación
+
+  Scenario 1: Usuario ingresa credenciales válidas
+    Given que el usuario posee una cuenta en la aplicación MoviRent
+    And desee iniciar sesión
+    When ingrese las credenciales necesarias correctamente
+    Then el sistema permitirá el acceso a la aplicación
+
+  Scenario 2: Usuario ingresa credenciales incorrectas
+    Given que el usuario posee una cuenta en la aplicación MoviRent
+    And desea iniciar sesión
+    When ingrese alguna credencial de manera incorrecta
+    Then el sistema denegará la solicitud
