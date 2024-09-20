@@ -1,0 +1,16 @@
+Feature: Eliminar cuenta de usuario
+
+  # Como Owner/Cliente de MoviRent 
+  # Quiero eliminar mi cuenta de usuario 
+  # Para dejar de usar los servicios de la aplicación
+
+  Scenario 1: Owner/Cliente elimina cuenta de usuario
+    Given que el Owner/Cliente desee eliminar su cuenta de usuario
+    When seleccione la opción de eliminar cuenta en su perfil
+    And confirme su intención para proceder con la operación
+    Then el sistema eliminará la cuenta y todos los datos almacenados
+
+  Scenario 2: Owner/Cliente no elimina cuenta de usuario
+    Given que el Owner/Cliente desee eliminar su cuenta de usuario
+    When niegue su intención para proceder con la operación
+    Then el sistema regresará a la vista de su cuenta sin eliminar los datos
