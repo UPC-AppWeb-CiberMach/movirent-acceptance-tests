@@ -1,0 +1,40 @@
+Feature: Cambiar datos personales
+
+  # Como Owner/Cliente de MoviRent 
+  # Quiero cambiar los datos asociados a mi perfil 
+  # Para actualizar la información
+
+  Scenario 1: Cambiar contraseña
+    Given que el usuario quiera cambiar su contraseña
+    When ingrese la nueva contraseña, esta sea validada por el sistema
+    And el usuario confirme su intención de proceder con el cambio
+    Then la nueva clave será guardada y la información actualizada
+
+  Scenario 2: Cambiar nombre
+    Given que el usuario quiera cambiar su nombre
+    When ingrese el nuevo nombre, esta sea validada por el usuario
+    And confirme su intención de proceder con el cambio
+    Then el nuevo nombre será guardado y la información actualizada
+
+  Scenario 3: Cambiar foto
+    Given que el usuario quiera cambiar su foto
+    When ingrese la nueva foto, esta sea validada por el usuario
+    And confirme su intención de proceder con el cambio
+    Then la nueva foto será guardada y la información actualizada
+
+  Scenario 4: Cambiar número de celular
+    Given que el usuario quiera cambiar su número de celular
+    When ingrese el nuevo número, esta sea validada por el sistema
+    And el usuario confirme su intención de proceder con el cambio
+    Then el nuevo número será guardado y la información actualizada
+
+  Scenario 5: Ingreso de datos inválidos
+    Given que el usuario quiera cambiar su información
+    When ingrese datos inválidos
+    Then se mostrará un mensaje de dato no válido
+
+  Scenario 6: No cambiar información
+    Given que el usuario no quiera cambiar su información
+    When aparezca el pop up para confirmar el cambio
+    And seleccione la opción para cancelar cambio
+    Then el pop up desaparecerá y el cambio no se realizará
