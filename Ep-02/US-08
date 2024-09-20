@@ -1,0 +1,15 @@
+Feature: Registrar usuario
+
+  # Como visitante de la aplicación web de MoviRent 
+  # Quiero poder crear una cuenta personal 
+  # Para comenzar a hacer uso de la aplicación como Owner/Cliente
+
+  Scenario 1: Usuario ingresa credenciales válidas
+    Given que el visitante desee crear una cuenta personal en la aplicación MoviRent
+    When ingrese las credenciales de una cuenta inexistente en la base de datos MoviRent, una contraseña que cumple con todos los requisitos de seguridad, su DNI real y acepte los términos y condiciones de uso
+    Then se creará la cuenta de usuario
+
+  Scenario 2: Usuario ingresa credenciales incorrectas
+    Given que el usuario ingresa credenciales incorrectas
+    When ingrese una dirección de correo electrónico o contraseña o DNI que no cumplen con los requisitos especificados
+    Then se le denegará la operación
