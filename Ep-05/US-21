@@ -1,1 +1,22 @@
-US-21
+Feature: Borrar historial de scooters alquilados
+
+  # Como Cliente de MoviRent 
+  # Quiero borrar mi historial de scooters alquilados 
+  # Para ya no tener información que considere innecesaria.
+
+  Scenario 1: Cliente elimina su historial de scooters alquilados
+    Given que el Cliente se encuentre en la aplicación de MoviRent
+    And ya ha alquilado scooters anteriormente
+    When se dirija a la opción de “Ver historial”
+    And le de al botón de “Borrar historial”
+    And confirme la acción
+    Then el sistema le mostrará un mensaje de que su historial ha sido borrado
+    And ya no mostrará la información del historial.
+
+  Scenario 2: Cliente no elimina su historial de scooters alquilados
+    Given que el Cliente se encuentre en la aplicación de MoviRent
+    And ya ha alquilado scooters anteriormente
+    When se dirija a la opción de “Ver historial”
+    And le de al botón de “Borrar historial”
+    And cancele la acción
+    Then el sistema mantendrá su historial sin cambios.
