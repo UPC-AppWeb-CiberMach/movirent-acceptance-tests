@@ -1,1 +1,38 @@
-US-22
+Feature: Adquirir plan
+
+  # Como Cliente de MoviRent 
+  # Quiero comprar un plan 
+  # Para acceder a sus beneficios al usar la aplicación.
+
+  Scenario 1: Cliente compra una membresía en MoviTech
+    Given que el Cliente se encuentra en el apartado de “Membresía”
+    And el Cliente no cuente con una membresía
+    And le dé al botón “Subscribe” de una membresía
+    When el sistema le muestre la ventana de pago
+    And se complete la información requerida
+    Then el sistema le mostrará un aviso de que la membresía se ha comprado con éxito.
+
+  Scenario 2: Cliente cancela compra de una membresía en MoviRent
+    Given que el Cliente se encuentra en el apartado de “Membresía”
+    And el Cliente no cuente con una membresía
+    And le dé al botón “Subscribe” de una membresía
+    When el sistema le muestre la ventana de pago
+    And se dé al botón de cancelar
+    Then el sistema le mostrará un aviso de que se ha cancelado la compra de la membresía.
+
+  Scenario 3: Cliente no compra una membresía en MoviRent
+    Given que el Cliente se encuentra en el apartado de “Membresía”
+    And le dé al botón “Subscribe” de una membresía
+    And el Cliente no cuente con una membresía
+    When el sistema le muestre la ventana de pago
+    And no se complete la información requerida
+    Then el sistema le mostrará un aviso de que la membresía no se ha adquirido.
+
+  Scenario 4: Cliente cambia de membresía en MoviRent
+    Given que el Cliente se encuentra en el apartado de “Membresía”
+    And el Cliente cuente con una membresía
+    And le dé al botón “Subscribe” de una membresía
+    And seleccione otra membresía diferente
+    When el sistema le muestre la ventana de pago
+    And se complete la información requerida
+    Then el sistema le mostrará un aviso de que la membresía se ha comprado con éxito.
