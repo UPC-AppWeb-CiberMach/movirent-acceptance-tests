@@ -1,1 +1,18 @@
-US-20
+Feature: Visualizar historial de scooters alquilados
+
+  # Como Cliente de MoviRent 
+  # Quiero visualizar mi historial de scooters alquilados 
+  # Para acceder fácilmente a su información
+
+  Scenario 1: Cliente visualiza su historial de scooters alquilados
+    Given que el Cliente se encuentre en la aplicación de MoviRent
+    And ya ha alquilado scooters anteriormente
+    When se dirija a la opción de “Ver historial”
+    Then el sistema le mostrará la información de los scooters que alquiló anteriormente.
+
+  Scenario 2: Cliente no visualiza su historial de scooters alquilados
+    Given que el Cliente se encuentre en la aplicación de MoviRent
+    And no ha alquilado scooters anteriormente
+    When se dirija a la opción de “Ver historial”
+    Then el sistema mostrará un mensaje de que aún no ha alquilado ningún scooter.
+
