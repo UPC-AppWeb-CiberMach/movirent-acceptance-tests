@@ -1,1 +1,21 @@
-US-23
+Feature: Cancelar suscripción
+
+  # Como Cliente de MoviRent 
+  # Quiero cancelar mi suscripción 
+  # Para ya no seguir teniendo cobros de esta.
+
+  Scenario 1: Cliente cancela una membresía en MoviRent
+    Given que el Cliente se encuentre en el apartado de “Membresía”
+    And el Cliente cuente con una membresía
+    And le dé al botón “Cancelar Membresía” de una membresía
+    When el sistema le muestre la ventana de cancelación
+    And se confirme la acción
+    Then el sistema le mostrará un aviso de que la membresía se ha cancelado con éxito.
+
+  Scenario 2: Cliente no cancela una membresía en MoviTech
+    Given que el Cliente se encuentre en el apartado de “Membresía”
+    And el Cliente cuente con una membresía
+    And le dé al botón “Cancelar Membresía” de una membresía
+    When el sistema le muestre la ventana de cancelación
+    And no confirme la acción
+    Then el sistema le mostrará un aviso de que la membresía no se ha cancelado.
