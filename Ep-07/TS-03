@@ -1,1 +1,15 @@
+Feature: Endpoint Suscription	
 
+  # Cómo desarrollador de MoviRent 
+  # Quiero hacer uso del endpoint /suscription 
+  # Para gestionar los datos de los planes de suscripción	
+
+  Scenario 1: Solicitud GET exitosa
+    Given que el desarrollador hace una solicitud GET al endpoint /suscription
+    When existan registros de suscripciones disponibles
+    Then el desarrollador recibe una respuesta 200 OK con una lista de planes.
+
+  Scenario 2: Solicitud GET fallida
+    Given que el desarrollador hace una solicitud GET al endpoint /suscriptión
+    When no existan registros de suscripciones disponibles
+    Then el desarrollador recibe una respuesta 404 Not Found.
