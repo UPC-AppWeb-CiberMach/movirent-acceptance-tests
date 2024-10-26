@@ -1,1 +1,46 @@
+Feature: Endpoint Scooter	
+
+  # Como desarrollador de MoviRent 
+  # Quiero hacer uso del endpoint /scooter 
+  # Para gestionar los datos de los scooters	
+
+  Scenario 1: Solicitud GET exitosa
+    Given que desarrollador hace una solicitud GET al endpoint /scooter
+    When existan registros de scooters disponibles
+    Then el desarrollador recibe una respuesta 200 OK con una lista de scooters
+
+  Scenario 2: Solicitud POST exitosa
+    Given que el desarrollador quiere crear un nuevo scooter
+    When los datos del scooter sean válidos y completos
+    Then el desarrollador recibe una respuesta 201 Created con los detalles del scooter creado
+
+  Scenario 3: Solicitud PUT exitosa
+    Given que el desarrollador quiera actualizar un scooter existente
+    When el scooter con el ID proporcionado exista
+    Then el desarrollador recibe una respuesta 200 OK con los detalles del scooter actualizado.
+
+  Scenario 4: Solicitud DELETE exitosa
+    Given que el desarrollador quiera eliminar un scooter
+    When el scooter con el ID proporcionado exista
+    Then el desarrollador recibe una respuesta 200 OK confirmando la eliminación.
+
+  Scenario 5: Solicitud GET fallida
+    Given que el desarrollador hace una solicitud GET al endpoint /scooter
+    When no existan registros de scooter
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 6: Solicitud POST fallida
+    Given que el desarrollador quiere crear un nuevo scooter
+    When los datos del scooter estén incompletos o no sean válidos
+    Then el desarrollador recibe una respuesta 400 Bad Request.
+
+  Scenario 7: Solicitud PUT fallida
+    Given que el desarrollador quiera actualizar un scooter
+    When el scooter con el ID proporcionado no exista
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 8: Solicitud DELETE fallida
+    Given que el desarrollador quiera eliminar un scooter
+    When el scooter con el ID proporcionado no exista
+    Then el desarrollador recibe una respuesta 404 Not Found.
 
