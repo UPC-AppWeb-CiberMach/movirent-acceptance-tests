@@ -1,1 +1,35 @@
+Feature: Endpoint Scooter	
 
+  # Como desarrollador de MoviRent 
+  # Quiero hacer uso del endpoint /historial 
+  # Para gestionar los datos de los historiales	
+
+  Scenario 1: Solicitud GET exitosa
+    Given que desarrollador hace una solicitud GET al endpoint /historial
+    When existan registros de historiales disponibles
+    Then el desarrollador recibe una respuesta 200 OK con una lista de historiales
+
+  Scenario 2: Solicitud POST exitosa
+    Given que el desarrollador quiere crear un nuevo historial
+    When los datos del historial sean válidos y completos
+    Then el desarrollador recibe una respuesta 201 Created con los detalles del historial creado
+
+  Scenario 3: Solicitud DELETE exitosa
+    Given que el desarrollador quiera eliminar un historial
+    When el historial con el ID proporcionado exista
+    Then el desarrollador recibe una respuesta 200 OK confirmando la eliminación.
+
+  Scenario 4: Solicitud GET fallida
+    Given que el desarrollador hace una solicitud GET al endpoint /historial
+    When no existan registros de historiales
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 5: Solicitud POST fallida
+    Given que el desarrollador quiere crear un nuevo historial
+    When los datos del historial estén incompletos o no sean válidos
+    Then el desarrollador recibe una respuesta 400 Bad Request.
+
+  Scenario 6: Solicitud DELETE fallida
+    Given que el desarrollador quiera eliminar un historial
+    When el historial con el ID proporcionado no exista
+    Then el desarrollador recibe una respuesta 404 Not Found.
