@@ -1,0 +1,25 @@
+Feature: Endpoint Reviews	
+
+  # Como desarrollador de MoviRent 
+  # Quiero hacer uso del endpoint /reviews 
+  # Para gestionar los datos de las reseñas	
+
+  Scenario 1: Solicitud GET exitosa
+    Given que desarrollador hace una solicitud GET al endpoint /reviews
+    When existan registros de reseñas disponibles
+    Then el desarrollador recibe una respuesta 200 OK con una lista de reseñas
+
+  Scenario 2: Solicitud POST exitosa
+    When que el desarrollador quiere crear una nueva reseña
+    When los datos de la reseña sean válidos y completos
+    Then el desarrollador recibe una respuesta 201 Created con los detalles de la reseña creada
+
+  Scenario 3: Solicitud GET fallida
+    When que el desarrollador hace una solicitud GET al endpoint /reviews
+    When no existan registros de reseñas
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 4: Solicitud POST fallida
+    When que el desarrollador quiere crear una nueva reseña
+    When los datos de la reseña estén incompletos o no sean válidos
+    Then el desarrollador recibe una respuesta 400 Bad Request.
