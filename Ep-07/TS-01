@@ -1,1 +1,46 @@
+Feature: Endpoint User	
+
+  # Como desarrollador de MoviRent 
+  # Quiero hacer uso del endpoint /user 
+  # Para gestionar los datos de los usuarios	
+
+  Scenario 1: Solicitud GET exitosa
+    Given que el desarrollador hace una solicitud GET al endpoint /user
+    When existan registros de usuarios disponibles
+    Then el desarrollador recibe una respuesta 200 OK con una lista de usuarios.
+
+  Scenario 2: Solicitud POST exitosa
+    Given que el desarrollador quiere crear un nuevo usuario
+    When los datos del usuario sean válidos y completos
+    Then el desarrollador recibe una respuesta 201 Created con los detalles del usuario creado
+
+  Scenario 3: Solicitud PUT exitosa
+    Given que el desarrollador quiera actualizar un usuario existente
+    When el usuario con el ID proporcionado exista
+    Then el desarrollador recibe una respuesta 200 OK con los detalles del usuario actualizado.
+
+  Scenario 4: Solicitud DELETE exitosa
+    Given que el desarrollador quiera eliminar un usuario
+    When el usuario con el ID proporcionado exista
+    Then el desarrollador recibe una respuesta 200 OK confirmando la eliminación.
+
+  Scenario 5: Solicitud GET fallida
+    Given que el desarrollador hace una solicitud GET al endpoint /users
+    When no existan registros de usuarios
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 6: Solicitud POST fallida
+    Given que el desarrollador quiere crear un nuevo usuario
+    When los datos del usuario estén incompletos o no sean válidos
+    Then el desarrollador recibe una respuesta 400 Bad Request.
+
+  Scenario 7: Solicitud PUT fallida
+    Given que el desarrollador quiera actualizar un usuario
+    When el usuario con el ID proporcionado no exista
+    Then el desarrollador recibe una respuesta 404 Not Found.
+
+  Scenario 8: Solicitud DELETE fallida
+    Given que el desarrollador quiera eliminar un usuario
+    When el usuario con el ID proporcionado no exista
+    Then el desarrollador recibe una respuesta 404 Not Found.
 
